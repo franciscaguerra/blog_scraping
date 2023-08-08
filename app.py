@@ -20,7 +20,9 @@ def search_all_articles():
     if category.lower() == "bonus": blogs_found = search_all_categories(driver)
     else:
         links = search_articles_by_category(driver, category)
+        print("En app despues de los links")
         blogs_found = search_one_article(driver, links)
+        print("En app despues de search_one_article")
     write_in_googlesheet(blogs_found)
     requests.post(webhook, data={"url_googlesheet": os.getenv("SPREADSHEET_URL"), "mail": "fxguerra@uc.cl"})
     return("Blogs buscados correctamente")
