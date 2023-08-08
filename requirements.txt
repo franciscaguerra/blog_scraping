@@ -6,8 +6,6 @@ astroid==2.5.6
 attrs==21.4.0
 Authlib==0.15.5
 backcall==0.2.0
-beautifulsoup4==4.9.3
-betterdata @ file:///Users/franciscaguerra/Desktop/betterdata-0.1.11-py3-none-any.whl
 blis==0.7.7
 boto3==1.19.10
 botocore==1.22.10
@@ -28,9 +26,6 @@ debugpy==1.5.1
 decorator==5.1.0
 distlib==0.3.1
 dj-database-url==0.5.0
-Django==3.2
-django-bootstrap4==3.0.0
-django-on-heroku==1.1.2
 en-core-web-md @ https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.2.0/en_core_web_md-3.2.0-py3-none-any.whl
 en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.2.0/en_core_web_sm-3.2.0-py3-none-any.whl
 entrypoints==0.3
@@ -85,15 +80,11 @@ murmurhash==1.0.6
 nest-asyncio==1.5.4
 networkx==2.8.7
 numpy==1.20.3
-oauth2client==4.1.3
-oauthlib==3.1.1
-openpyxl==3.0.9
 outcome==1.2.0
 packaging==21.3
 pandas==1.2.4
 parso==0.8.3
 pathy==0.6.1
-pdfkit==1.0.0
 pexpect==4.8.0
 pickleshare==0.7.5
 Pillow==8.4.0
@@ -111,7 +102,6 @@ pyasn1-modules==0.2.8
 pycparser==2.20
 pydantic==1.8.2
 PyDrive2==1.10.0
-pydyf==0.1.2
 Pygments==2.10.0
 pylint==2.8.3
 pyOpenSSL==21.0.0
@@ -145,7 +135,6 @@ soupsieve==2.2.1
 spacy==3.2.4
 spacy-legacy==3.0.9
 spacy-loggers==1.0.2
-SQLAlchemy==1.3.18
 sqlparse==0.4.1
 srsly==2.4.3
 tenacity==8.0.1
@@ -171,7 +160,6 @@ weasyprint==54.1
 webencodings==0.5.1
 Werkzeug==2.0.2
 whitenoise==5.2.0
-wkhtmltopdf==0.2
 wrapt==1.12.1
 wsproto==1.2.0
 xlrd==2.0.1
