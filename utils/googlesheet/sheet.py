@@ -1,9 +1,5 @@
 import os
-from dotenv import load_dotenv
 import gspread
-
-
-load_dotenv()
 
 
 def write_in_googlesheet(data):

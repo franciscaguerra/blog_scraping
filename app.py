@@ -3,12 +3,10 @@ from utils.scraper.scraper import search_articles_by_category, search_one_articl
 from utils.googlesheet.sheet import write_in_googlesheet
 import requests
 import os
-from dotenv import load_dotenv
 from selenium import webdriver
 
 
 app = Flask(__name__)
-load_dotenv()
 
 @app.route('/search-category', methods=['POST'])
 def search_all_articles():
