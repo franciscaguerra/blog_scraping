@@ -24,7 +24,7 @@ def search_all_articles():
     options.add_argument('--ignore-certificate-errors')
     options.add_argument("--headless")
     options.add_argument("--disable-dev-shm-usage")
-    driver = webdriver.Chrome(service = os.getenv("CHROME_DRIVER_PATH"), options=options)
+    driver = webdriver.Chrome(options)
     print("Despues del driver")
     if category.lower() == "bonus": blogs_found = search_all_categories(driver)
     else:
