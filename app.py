@@ -5,6 +5,7 @@ import requests
 import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+import chromedriver_binary
 
 
 app = Flask(__name__)
