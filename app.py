@@ -6,6 +6,7 @@ import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import chromedriver_binary
+from selenium.common.exceptions import TimeoutException
 
 
 app = Flask(__name__)
@@ -25,8 +26,12 @@ def search_all_articles():
     options.add_argument('--ignore-certificate-errors')
     options.add_argument("--headless")
     options.add_argument("--disable-dev-shm-usage")
-    driver = webdriver.Chrome(options)
-    print("Despues del driver")
+    options.add_argument("--dns-prefetch-disable")
+    try:
+        driver = webdriver.Chrome(options)
+    except TimeoutException as ex:
+        print(ex.Message)
+        print("Despues del driver")
     if category.lower() == "bonus": blogs_found = search_all_categories(driver)
     else:
         links = search_articles_by_category(driver, category)
