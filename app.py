@@ -29,6 +29,7 @@ def search_all_articles():
     try:
         print("Entro al try")
         print(chromedriver_binary.chromedriver_filename)
+        print(type(chromedriver_binary.chromedriver_filename))
         driver = webdriver.Chrome(executable_path = chromedriver_binary.chromedriver_filename,options=options)
         print("Despues del driver")
         driver.get('https://xepelin.com/blog/')
