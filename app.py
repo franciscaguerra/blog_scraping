@@ -28,7 +28,7 @@ def search_all_articles():
     options.add_argument("--dns-prefetch-disable")
     try:
         print("Entro al try")
-        driver = webdriver.Chrome(options)
+        driver = webdriver.Chrome(executable_path = chromedriver_binary.chromedriver_filename,options=options)
         print("Despues del driver")
         driver.get('https://xepelin.com/blog/')
         print("despues del get")
