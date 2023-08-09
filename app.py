@@ -20,7 +20,6 @@ def search_all_articles():
     if not webhook: raise abort(400, "El parametro webhook no se encuentra.")
     print("Antes de ChromOptions")
     options = webdriver.ChromeOptions()
-    options.binary_location = os.getenv("GOOGLE_CHROME_BIN")
     print("Despues de ChromOptions")
     options.add_argument('--no-sandbox')
     options.add_argument('--ignore-certificate-errors')
