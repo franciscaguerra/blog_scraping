@@ -28,8 +28,11 @@ def search_all_articles():
     options.add_argument("--dns-prefetch-disable")
     try:
         print("Entro al try")
-        driver = webdriver.Chrome(service=chromedriver_binary, options=options)
+        driver = webdriver.Chrome(options)
         print("Despues del driver")
+        driver.get('https://xepelin.com/blog/')
+        print("despues del get")
+        
     except TimeoutException as ex:
         print(ex.Message)
     if category.lower() == "bonus": blogs_found = search_all_categories(driver)
