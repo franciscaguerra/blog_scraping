@@ -27,10 +27,11 @@ def search_all_articles():
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--dns-prefetch-disable")
     try:
+        print("Entro al try")
         driver = webdriver.Chrome(options)
+        print("Despues del driver")
     except TimeoutException as ex:
         print(ex.Message)
-        print("Despues del driver")
     if category.lower() == "bonus": blogs_found = search_all_categories(driver)
     else:
         links = search_articles_by_category(driver, category)
