@@ -7,9 +7,8 @@ from unidecode import unidecode
 
 #Busqueda con la lupita
 def search_articles_by_word(driver, category): 
-    driver.get(url_blog)
+    driver.get(os.getenv("BLOG_URL"))
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//div[@class='ArticleSearch_search__KuXsU']/input[1]"))).send_keys(category)
-    #Cambiar la parte de sleep por un until, VER COMO HACERLO
     time.sleep(2)
     results = driver.find_element(By.CLASS_NAME, "ArticleSearch_searchResults__1SzK9")
     links = list(set([elem.get_attribute('href') for elem in results.find_elements(By.TAG_NAME, 'a')]))
@@ -58,7 +57,7 @@ def search_articles_by_category(driver, category):
         'xepelin': 'noticias'
     }
     if category in dict_categories.keys():
-        driver.get(f'{url_blog}{dict_categories[unidecode(category.lower())]}')
+        driver.get(f'{os.getenv("BLOG_URL")}{dict_categories[unidecode(category.lower())]}')
         while True:
             try:
                 WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//button[@class='sc-bf9c36a8-0 gVyddL Button_root__G_l9X Button_filled__GEop3 Button_medium__zCMU6']"))).click()
