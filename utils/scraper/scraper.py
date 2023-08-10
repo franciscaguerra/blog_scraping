@@ -8,7 +8,7 @@ from unidecode import unidecode
 url_blog = os.getenv('BLOG_URL')
 
 #Busqueda con la lupita
-def search_articles_by_category(driver, category): 
+def search_articles_by_word(driver, category): 
     driver.get(url_blog)
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//div[@class='ArticleSearch_search__KuXsU']/input[1]"))).send_keys(category)
     #Cambiar la parte de sleep por un until, VER COMO HACERLO
@@ -53,7 +53,7 @@ def search_all_categories(driver):
     return data_articles
 
 #Busqueda por categoria
-def search_by_category(driver, category):
+def search_articles_by_category(driver, category):
     links = []
     dict_categories = {
         'emprendedores': 'emprendedores',
@@ -63,7 +63,7 @@ def search_by_category(driver, category):
         'educacion financiera': 'educacion-financiera',
         'xepelin': 'noticias'
     }
-    if dict_categories[category]:
+    if category in dict_categories.keys():
         driver.get(f'{url_blog}{dict_categories[unidecode(category.lower())]}')
         while True:
             try:
@@ -75,5 +75,7 @@ def search_by_category(driver, category):
         for article in all_articles:
             href = article.find_elements(By.XPATH, '*')[0].find_elements(By.XPATH, '*')[0].get_attribute('href')
             links.append(href)
-    data_articles = search_one_article(driver, links)
+        data_articles = search_one_article(driver, links)
+    else: 
+        return []
     return data_articles
