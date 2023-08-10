@@ -20,12 +20,12 @@ def search_all_articles():
     options.add_argument("--headless")
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--dns-prefetch-disable")
-    driver = webdriver.Remote("http://localhost:4444/wd/hub", options=options)
+    driver = webdriver.Remote(os.getenv("CHROMEDRIVER"), options=options)
     if category.lower() == "bonus": blogs_found = search_all_categories(driver)
     else:
         blogs_found = search_articles_by_category(driver, category)
     write_in_googlesheet(blogs_found)
-    requests.post(webhook, json={"url_googlesheet": os.getenv("SPREADSHEET_URL"), "mail": "fxguerra@uc.cl"})
+    requests.post(webhook, json={"url_googlesheet": os.getenv("SPREADSHEET_URL"), "mail": os.getenv("MAIL")})
     
     return("Blogs buscados correctamente")
 

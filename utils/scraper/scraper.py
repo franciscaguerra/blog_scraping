@@ -5,8 +5,6 @@ import time
 import os
 from unidecode import unidecode
 
-url_blog = os.getenv('BLOG_URL')
-
 #Busqueda con la lupita
 def search_articles_by_word(driver, category): 
     driver.get(url_blog)
@@ -34,7 +32,7 @@ def search_all_categories(driver):
     categories = ['emprendedores', 'pymes', 'corporativos', 'empresarios-exitosos', 'educacion-financiera', 'noticias']
     links = []
     for category in categories:
-        driver.get(f'{url_blog}{category}')
+        driver.get(f'{os.getenv("BLOG_URL")}{category}')
         while True:
             try:
                 WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//button[@class='sc-bf9c36a8-0 gVyddL Button_root__G_l9X Button_filled__GEop3 Button_medium__zCMU6']"))).click()
