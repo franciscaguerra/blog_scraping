@@ -26,3 +26,5 @@ def write_in_googlesheet(data):
     wks.clear()
     wks.update([['Titular', 'Categoria', 'Autor', 'Tiempo de lectura', 'Fecha de publicacion' ]] + data)
     return
+
+
