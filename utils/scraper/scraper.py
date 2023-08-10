@@ -13,7 +13,6 @@ def search_articles_by_word(driver, category):
     WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//div[@class='ArticleSearch_search__KuXsU']/input[1]"))).send_keys(category)
     #Cambiar la parte de sleep por un until, VER COMO HACERLO
     time.sleep(2)
-    print("En search_articles_by_category despues de escribir")
     results = driver.find_element(By.CLASS_NAME, "ArticleSearch_searchResults__1SzK9")
     links = list(set([elem.get_attribute('href') for elem in results.find_elements(By.TAG_NAME, 'a')]))
     return links
@@ -21,15 +20,12 @@ def search_articles_by_word(driver, category):
 
 def search_one_article(driver, links):
     data_articles = []
-    print("adentro de search_one_article")
     for link in links:
         driver.get(link)
-        print("antes de identificar todos los atributos")
         category = driver.find_element(By.CLASS_NAME, "text-primary-main").text
         title = driver.find_element(By.CLASS_NAME, "ArticleSingle_title__s6dVD").text
         time = driver.find_element(By.XPATH, "//div[@class='sc-fe594033-0 ioYqnu text-grey-600 Text_body__ldD0k']").text
         author = driver.find_element(By.CLASS_NAME, "Text_bodySmall__wdsbZ").text
-        print("despues de identificar todos los atributos")
         data_articles.append([title, category, author, time])
     return data_articles
 
